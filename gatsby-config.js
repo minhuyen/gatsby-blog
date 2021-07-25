@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: `Pandas Eating Lots`,
-    description: `A simple description about pandas eating lots...`,
-    author: `gatsbyjs`,
+    siteUrl: "https://gatsbyblog22997.gatsbyjs.io",
+    title: `My First Blog`,
+    description: `my first blog`,
+    author: `Uyen Do`,
   },
   plugins: [
     "gatsby-plugin-gatsby-cloud",
@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/content/blog/`,
+        path: `${__dirname}/content/posts/`,
       },
     },
     "gatsby-plugin-mdx",

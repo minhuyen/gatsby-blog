@@ -1,13 +1,9 @@
 import * as React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "./layout.module.css";
+import { Navbar, Container, Nav } from "react-bootstrap";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { container, heading, navLinkText } from "./layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -24,28 +20,40 @@ const Layout = ({ pageTitle, children }) => {
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      <p className={siteTitle}>{data.site.siteMetadata.title}</p>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
+      {/* <p className={siteTitle}>{data.site.siteMetadata.title}</p> */}
+      <Navbar>
+        <Container>
+          <Navbar.Brand>{data.site.siteMetadata.title}</Navbar.Brand>
+        </Container>
+        <Nav>
+          <Nav.Item>
             <Link to="/" className={navLinkText}>
-              Home
+              <Nav.Link as="span" eventKey="link-1">
+                Home
+              </Nav.Link>
             </Link>
-          </li>
-          <li className={navLinkItem}>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/about" className={navLinkText}>
-              About
+              <Nav.Link as="span" eventKey="link-1">
+                About
+              </Nav.Link>
             </Link>
-          </li>
-          <li className={navLinkItem}>
+          </Nav.Item>
+          <Nav.Item>
             <Link to="/blog" className={navLinkText}>
-              Blog
+              <Nav.Link as="span" eventKey="link-1">
+                Articles
+              </Nav.Link>
             </Link>
-          </li>
-        </ul>
-      </nav>
-      <h1 className={heading}>{pageTitle}</h1>
-      {children}
+          </Nav.Item>
+        </Nav>
+      </Navbar>
+
+      <Container>
+        <h1 className={heading}>{pageTitle}</h1>
+        {children}
+      </Container>
     </main>
   );
 };
