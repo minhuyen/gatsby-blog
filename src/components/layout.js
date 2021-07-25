@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { Navbar, Container, Nav } from "react-bootstrap";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { container, heading, navLinkText } from "./layout.module.css";
+import { container, navLinkText } from "./layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -20,7 +20,6 @@ const Layout = ({ pageTitle, children }) => {
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      {/* <p className={siteTitle}>{data.site.siteMetadata.title}</p> */}
       <Navbar>
         <Container>
           <Navbar.Brand>{data.site.siteMetadata.title}</Navbar.Brand>
@@ -51,7 +50,7 @@ const Layout = ({ pageTitle, children }) => {
       </Navbar>
 
       <Container>
-        <h1 className={heading}>{pageTitle}</h1>
+        {/* <h1 className={heading}>{pageTitle}</h1> */}
         {children}
       </Container>
     </main>
