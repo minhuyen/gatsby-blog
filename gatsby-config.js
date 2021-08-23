@@ -7,8 +7,6 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -16,7 +14,23 @@ module.exports = {
         path: `${__dirname}/content/posts/`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static`,
+        name: "assets",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/media`,
+        name: "media",
+      },
+    },
     `gatsby-remark-prismjs`,
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     `gatsby-remark-images`,
     {
       resolve: `gatsby-plugin-mdx`,
@@ -26,6 +40,7 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 590,
+              withWebp: true,
             },
           },
           {
